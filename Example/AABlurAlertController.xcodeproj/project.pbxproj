@@ -13,6 +13,8 @@
 		A832C25C1E2E5B610095881B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A832C25B1E2E5B610095881B /* Assets.xcassets */; };
 		A832C25F1E2E5B610095881B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A832C25D1E2E5B610095881B /* LaunchScreen.storyboard */; };
 		A832C26A1E2E5B610095881B /* AABlurAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C2691E2E5B610095881B /* AABlurAlertControllerTests.swift */; };
+		A832C27B1E2E64620095881B /* AABlurAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C27A1E2E64620095881B /* AABlurAlertController.swift */; };
+		A832C27D1E2E68A70095881B /* IMG_7342.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A832C27C1E2E68A70095881B /* IMG_7342.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		A832C2651E2E5B610095881B /* AABlurAlertControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AABlurAlertControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A832C2691E2E5B610095881B /* AABlurAlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AABlurAlertControllerTests.swift; sourceTree = "<group>"; };
 		A832C26B1E2E5B610095881B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A832C27A1E2E64620095881B /* AABlurAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AABlurAlertController.swift; sourceTree = "<group>"; };
+		A832C27C1E2E68A70095881B /* IMG_7342.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_7342.JPG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,9 @@
 		A832C2481E2E5B600095881B = {
 			isa = PBXGroup;
 			children = (
-				A832C2531E2E5B610095881B /* AABlurAlertController */,
-				A832C2681E2E5B610095881B /* AABlurAlertControllerTests */,
+				A832C2741E2E5DF60095881B /* Source */,
+				A832C2531E2E5B610095881B /* Example */,
+				A832C2681E2E5B610095881B /* Tests */,
 				A832C2521E2E5B610095881B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,9 +79,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A832C2531E2E5B610095881B /* AABlurAlertController */ = {
+		A832C2531E2E5B610095881B /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				A832C27C1E2E68A70095881B /* IMG_7342.JPG */,
 				A832C2541E2E5B610095881B /* AppDelegate.swift */,
 				A832C2561E2E5B610095881B /* ViewController.swift */,
 				A832C2581E2E5B610095881B /* Main.storyboard */,
@@ -84,16 +90,27 @@
 				A832C25D1E2E5B610095881B /* LaunchScreen.storyboard */,
 				A832C2601E2E5B610095881B /* Info.plist */,
 			);
+			name = Example;
 			path = AABlurAlertController;
 			sourceTree = "<group>";
 		};
-		A832C2681E2E5B610095881B /* AABlurAlertControllerTests */ = {
+		A832C2681E2E5B610095881B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A832C2691E2E5B610095881B /* AABlurAlertControllerTests.swift */,
 				A832C26B1E2E5B610095881B /* Info.plist */,
 			);
+			name = Tests;
 			path = AABlurAlertControllerTests;
+			sourceTree = "<group>";
+		};
+		A832C2741E2E5DF60095881B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				A832C27A1E2E64620095881B /* AABlurAlertController.swift */,
+			);
+			name = Source;
+			path = ../Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +162,7 @@
 				TargetAttributes = {
 					A832C2501E2E5B610095881B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C8WJM3UR8V;
 						ProvisioningStyle = Automatic;
 					};
 					A832C2641E2E5B610095881B = {
@@ -181,6 +199,7 @@
 				A832C25F1E2E5B610095881B /* LaunchScreen.storyboard in Resources */,
 				A832C25C1E2E5B610095881B /* Assets.xcassets in Resources */,
 				A832C25A1E2E5B610095881B /* Main.storyboard in Resources */,
+				A832C27D1E2E68A70095881B /* IMG_7342.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +219,7 @@
 			files = (
 				A832C2571E2E5B610095881B /* ViewController.swift in Sources */,
 				A832C2551E2E5B610095881B /* AppDelegate.swift in Sources */,
+				A832C27B1E2E64620095881B /* AABlurAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +358,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8WJM3UR8V;
 				INFOPLIST_FILE = AABlurAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.aitali.AABlurAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,7 +372,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C8WJM3UR8V;
 				INFOPLIST_FILE = AABlurAlertController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.aitali.AABlurAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,6 +429,7 @@
 				A832C2701E2E5B610095881B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A832C2711E2E5B610095881B /* Build configuration list for PBXNativeTarget "AABlurAlertControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +438,7 @@
 				A832C2731E2E5B610095881B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
