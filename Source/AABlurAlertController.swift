@@ -8,14 +8,67 @@
 
 import UIKit
 
+public enum AABlurActionStyle {
+    case `default`, cancel
+}
+
+open class AABlurAlertAction: UIButton {
+    fileprivate var handler: ((AABlurAlertAction) -> Void)? = nil
+    fileprivate var style: AABlurActionStyle = AABlurActionStyle.default
+    fileprivate var parent: AABlurAlertController? = nil
+
+    init(title: String?, style: AABlurActionStyle, handler: ((AABlurAlertAction) -> Void)?) {
+        super.init(frame: CGRect.zero)
+
+        self.style = style
+        self.handler = handler
+
+        self.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        self.setTitle(title, for: UIControlState.normal)
+
+        switch self.style {
+        case .cancel:
+            self.setTitleColor(UIColor(red:0.47, green:0.50, blue:0.55, alpha:1.00), for: UIControlState.normal)
+            self.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.00)
+            self.layer.borderColor = UIColor(red:0.74, green:0.77, blue:0.79, alpha:1.00).cgColor
+        default:
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
+            self.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.64, alpha:1.00).cgColor
+        }
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 0.1
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    @objc fileprivate func buttonTapped(_ sender: AABlurAlertAction) {
+        self.parent?.dismiss(animated: true, completion: {
+            self.handler?(sender)
+        })
+    }
+}
+
 open class AABlurAlertController: UIViewController {
 
     open var blurEffectStyle: UIBlurEffectStyle = .light
+    open var imageHeight: Float = 175
 
     fileprivate var backgroundImage : UIImageView = UIImageView()
     fileprivate var alertView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
+        view.layer.cornerRadius = 5
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 15)
+        view.layer.shadowRadius = 12
+        view.layer.shadowOpacity = 0.22
         return view
     }()
     open var alertImage : UIImageView = {
@@ -43,23 +96,16 @@ open class AABlurAlertController: UIViewController {
     }()
 
     fileprivate let buttonsStackView : UIStackView = {
-        let tmp1 = UIView()
-        tmp1.backgroundColor = UIColor.blue
-        let tmp2 = UIView()
-        tmp2.backgroundColor = UIColor.red
-        let sv = UIStackView(arrangedSubviews: [tmp1, tmp2])
+        let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
         sv.spacing = 22
         return sv
     }()
 
-    public init(image: UIImage? = nil) {
+    public init() {
         super.init(nibName: nil, bundle: nil)
-
-        alertImage.image = image
-
-        setup()
+        self.modalTransitionStyle = .crossDissolve
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -75,17 +121,7 @@ open class AABlurAlertController: UIViewController {
         self.backgroundImage.frame = self.view.bounds
         self.backgroundImage.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view.addSubview(backgroundImage)
-        // Set up background Tap
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
-        self.backgroundImage.isUserInteractionEnabled = true
-        self.backgroundImage.addGestureRecognizer(tapGesture)
         // Set up the alert view
-        alertView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-        alertView.layer.cornerRadius = 5
-        alertView.layer.shadowColor = UIColor.black.cgColor
-        alertView.layer.shadowOffset = CGSize(width: 0, height: 15)
-        alertView.layer.shadowRadius = 12
-        alertView.layer.shadowOpacity = 0.22
         self.view.addSubview(alertView)
         // Set up alertImage
         self.alertView.addSubview(alertImage)
@@ -95,6 +131,13 @@ open class AABlurAlertController: UIViewController {
         self.alertView.addSubview(alertSubtitle)
         // Set up buttonsStackView
         self.alertView.addSubview(buttonsStackView)
+
+        // Set up background Tap
+        if buttonsStackView.arrangedSubviews.count <= 0 {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnBackground))
+            self.backgroundImage.isUserInteractionEnabled = true
+            self.backgroundImage.addGestureRecognizer(tapGesture)
+        }
 
         setupConstraints()
     }
@@ -107,22 +150,24 @@ open class AABlurAlertController: UIViewController {
             "alertSubtitle": alertSubtitle,
             "buttonsStackView": buttonsStackView
         ]
+        let spacing = 16
         let viewMetrics: [String: Any] = [
-            "margin": 32,
-            "spacing": 16,
+            "margin": spacing * 2,
+            "spacing": spacing,
             "alertViewWidth": 450,
-            "alertImageHeight": (alertImage.image != nil) ? 175 : 0,
+            "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
             "alertTitleHeight": 22,
             "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 40 : 0
         ]
 
+        let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-spacing-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-spacing-[alertSubtitle]-margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
-                                        options: [], metrics: viewMetrics, views: viewsDict),
+        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+            options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertImage]-margin-|",
@@ -138,7 +183,8 @@ open class AABlurAlertController: UIViewController {
 
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
+
+        setup()
 
         // Set up blur effect
         backgroundImage.image = snapshot()
@@ -154,6 +200,11 @@ open class AABlurAlertController: UIViewController {
 
         blurEffectView.contentView.addSubview(vibrancyEffectView)
         backgroundImage.addSubview(blurEffectView)
+    }
+
+    func addAction(action: AABlurAlertAction) {
+        action.parent = self
+        buttonsStackView.addArrangedSubview(action)
     }
 
     fileprivate func snapshot() -> UIImage? {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CFA3E3F0D09F624572C0F9A /* Pods_AABlurAlertControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874EB0699D9C150600A3864F /* Pods_AABlurAlertControllerTests.framework */; };
 		A832C2551E2E5B610095881B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C2541E2E5B610095881B /* AppDelegate.swift */; };
 		A832C2571E2E5B610095881B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C2561E2E5B610095881B /* ViewController.swift */; };
 		A832C25A1E2E5B610095881B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A832C2581E2E5B610095881B /* Main.storyboard */; };
@@ -14,7 +15,7 @@
 		A832C25F1E2E5B610095881B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A832C25D1E2E5B610095881B /* LaunchScreen.storyboard */; };
 		A832C26A1E2E5B610095881B /* AABlurAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C2691E2E5B610095881B /* AABlurAlertControllerTests.swift */; };
 		A832C27B1E2E64620095881B /* AABlurAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A832C27A1E2E64620095881B /* AABlurAlertController.swift */; };
-		A832C27D1E2E68A70095881B /* IMG_7342.JPG in Resources */ = {isa = PBXBuildFile; fileRef = A832C27C1E2E68A70095881B /* IMG_7342.JPG */; };
+		E67191D102198811AD04951A /* Pods_AABlurAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943B91D57F31BE55E11D9466 /* Pods_AABlurAlertController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		867B9BB9B7E7773D5BAC479D /* Pods-AABlurAlertController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AABlurAlertController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AABlurAlertController/Pods-AABlurAlertController.debug.xcconfig"; sourceTree = "<group>"; };
+		874EB0699D9C150600A3864F /* Pods_AABlurAlertControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AABlurAlertControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		943B91D57F31BE55E11D9466 /* Pods_AABlurAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AABlurAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14616262BADD2983F15F64D /* Pods-AABlurAlertControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AABlurAlertControllerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AABlurAlertControllerTests/Pods-AABlurAlertControllerTests.release.xcconfig"; sourceTree = "<group>"; };
 		A832C2511E2E5B610095881B /* AABlurAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AABlurAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A832C2541E2E5B610095881B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A832C2561E2E5B610095881B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +44,8 @@
 		A832C2691E2E5B610095881B /* AABlurAlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AABlurAlertControllerTests.swift; sourceTree = "<group>"; };
 		A832C26B1E2E5B610095881B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A832C27A1E2E64620095881B /* AABlurAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AABlurAlertController.swift; sourceTree = "<group>"; };
-		A832C27C1E2E68A70095881B /* IMG_7342.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_7342.JPG; sourceTree = "<group>"; };
+		EC118E2342BF439D8D864946 /* Pods-AABlurAlertControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AABlurAlertControllerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AABlurAlertControllerTests/Pods-AABlurAlertControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F6E3B3914EB67AAE027AD24F /* Pods-AABlurAlertController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AABlurAlertController.release.xcconfig"; path = "Pods/Target Support Files/Pods-AABlurAlertController/Pods-AABlurAlertController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E67191D102198811AD04951A /* Pods_AABlurAlertController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +61,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CFA3E3F0D09F624572C0F9A /* Pods_AABlurAlertControllerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D41CAB64FAD6C572E2B2107 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				867B9BB9B7E7773D5BAC479D /* Pods-AABlurAlertController.debug.xcconfig */,
+				F6E3B3914EB67AAE027AD24F /* Pods-AABlurAlertController.release.xcconfig */,
+				EC118E2342BF439D8D864946 /* Pods-AABlurAlertControllerTests.debug.xcconfig */,
+				A14616262BADD2983F15F64D /* Pods-AABlurAlertControllerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A832C2481E2E5B600095881B = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +86,8 @@
 				A832C2531E2E5B610095881B /* Example */,
 				A832C2681E2E5B610095881B /* Tests */,
 				A832C2521E2E5B610095881B /* Products */,
+				8D41CAB64FAD6C572E2B2107 /* Pods */,
+				BAC8E612DE1BBE825E5AB4DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,7 +103,6 @@
 		A832C2531E2E5B610095881B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				A832C27C1E2E68A70095881B /* IMG_7342.JPG */,
 				A832C2541E2E5B610095881B /* AppDelegate.swift */,
 				A832C2561E2E5B610095881B /* ViewController.swift */,
 				A832C2581E2E5B610095881B /* Main.storyboard */,
@@ -113,6 +133,15 @@
 			path = ../Source;
 			sourceTree = "<group>";
 		};
+		BAC8E612DE1BBE825E5AB4DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943B91D57F31BE55E11D9466 /* Pods_AABlurAlertController.framework */,
+				874EB0699D9C150600A3864F /* Pods_AABlurAlertControllerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A832C26E1E2E5B610095881B /* Build configuration list for PBXNativeTarget "AABlurAlertController" */;
 			buildPhases = (
+				51C88D542AFF463B78F7C465 /* [CP] Check Pods Manifest.lock */,
 				A832C24D1E2E5B610095881B /* Sources */,
 				A832C24E1E2E5B610095881B /* Frameworks */,
 				A832C24F1E2E5B610095881B /* Resources */,
+				E62A79777CB1A51725E8FEF1 /* [CP] Embed Pods Frameworks */,
+				377582E30A06357163C1B466 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,9 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A832C2711E2E5B610095881B /* Build configuration list for PBXNativeTarget "AABlurAlertControllerTests" */;
 			buildPhases = (
+				2D48FBF516F19969CFD2FC21 /* [CP] Check Pods Manifest.lock */,
 				A832C2611E2E5B610095881B /* Sources */,
 				A832C2621E2E5B610095881B /* Frameworks */,
 				A832C2631E2E5B610095881B /* Resources */,
+				BBD3C61D902A594A015BA905 /* [CP] Embed Pods Frameworks */,
+				BD112E2926654070F8F5FCCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,7 +234,6 @@
 				A832C25F1E2E5B610095881B /* LaunchScreen.storyboard in Resources */,
 				A832C25C1E2E5B610095881B /* Assets.xcassets in Resources */,
 				A832C25A1E2E5B610095881B /* Main.storyboard in Resources */,
-				A832C27D1E2E68A70095881B /* IMG_7342.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +245,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D48FBF516F19969CFD2FC21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		377582E30A06357163C1B466 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AABlurAlertController/Pods-AABlurAlertController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51C88D542AFF463B78F7C465 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBD3C61D902A594A015BA905 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AABlurAlertControllerTests/Pods-AABlurAlertControllerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD112E2926654070F8F5FCCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AABlurAlertControllerTests/Pods-AABlurAlertControllerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E62A79777CB1A51725E8FEF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AABlurAlertController/Pods-AABlurAlertController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A832C24D1E2E5B610095881B /* Sources */ = {
@@ -356,6 +483,7 @@
 		};
 		A832C26F1E2E5B610095881B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 867B9BB9B7E7773D5BAC479D /* Pods-AABlurAlertController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C8WJM3UR8V;
@@ -370,6 +498,7 @@
 		};
 		A832C2701E2E5B610095881B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6E3B3914EB67AAE027AD24F /* Pods-AABlurAlertController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C8WJM3UR8V;
@@ -384,6 +513,7 @@
 		};
 		A832C2721E2E5B610095881B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC118E2342BF439D8D864946 /* Pods-AABlurAlertControllerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -398,6 +528,7 @@
 		};
 		A832C2731E2E5B610095881B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14616262BADD2983F15F64D /* Pods-AABlurAlertControllerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
