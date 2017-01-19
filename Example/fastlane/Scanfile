@@ -1,0 +1,19 @@
+# For more information about this configuration visit
+# https://github.com/fastlane/scan#scanfile
+
+# In general, you can use the options available
+# scan --help
+
+# open_report true
+
+# clean true
+
+code_coverage true
+
+skip_slack true
+
+devices ['iPad Pro (9.7 inch)']
+
+output_types 'html'
+
+scheme 'AABlurAlertController'
