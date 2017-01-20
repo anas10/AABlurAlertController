@@ -203,7 +203,7 @@ open class AABlurAlertController: UIViewController {
         backgroundImage.addSubview(blurEffectView)
     }
 
-    func addAction(action: AABlurAlertAction) {
+    open func addAction(action: AABlurAlertAction) {
         action.parent = self
         buttonsStackView.addArrangedSubview(action)
     }
