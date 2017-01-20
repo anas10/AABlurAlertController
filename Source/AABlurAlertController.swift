@@ -17,7 +17,7 @@ open class AABlurAlertAction: UIButton {
     fileprivate var style: AABlurActionStyle = AABlurActionStyle.default
     fileprivate var parent: AABlurAlertController? = nil
 
-    init(title: String?, style: AABlurActionStyle, handler: ((AABlurAlertAction) -> Void)?) {
+    public init(title: String?, style: AABlurActionStyle, handler: ((AABlurAlertAction) -> Void)?) {
         super.init(frame: CGRect.zero)
 
         self.style = style
