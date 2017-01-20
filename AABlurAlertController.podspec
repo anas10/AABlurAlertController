@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "AABlurAlertController"
-    s.version      = "1.0.1"
+    s.version      = "1.0.2"
     s.summary      = "Beautiful configurable Alert View with blurred background"
 
     s.homepage     = "https://github.com/anas10/AABlurAlertController"
