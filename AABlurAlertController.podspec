@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
     s.author             = { "Anas AIT ALI" => "contact@aitali.co" }
     s.social_media_url   = "http://twitter.com/anasaitali"
 
-    s.platform     = :ios, "8.0"
+    s.platform     = :ios, "9.0"
     s.requires_arc = true
 
     s.module_name  = 'AABlurAlertController'
