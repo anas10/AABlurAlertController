@@ -36,6 +36,7 @@ open class AABlurAlertAction: UIButton {
             self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
             self.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.64, alpha:1.00).cgColor
         }
+        self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 5
         self.layer.shadowOffset = CGSize(width: 0, height: 2)
