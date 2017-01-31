@@ -114,6 +114,9 @@ open class AABlurAlertController: UIViewController {
     }
 
     fileprivate func setup() {
+        // Clean the views
+        self.view.subviews.forEach{ $0.removeFromSuperview() }
+        self.backgroundImage.subviews.forEach{ $0.removeFromSuperview() }
         // Set up view
         self.view.frame = UIScreen.main.bounds
         self.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
