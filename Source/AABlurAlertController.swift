@@ -59,6 +59,15 @@ open class AABlurAlertController: UIViewController {
 
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
+    open var alertViewWidth: Float?
+
+    /**
+     Set the max alert view width
+     If you don't want to have a max width set this to nil.
+     It will take 70% of the superview width by default
+     Default : 450
+     */
+    open var maxAlertViewWidth: CGFloat? = 450
 
     fileprivate var backgroundImage : UIImageView = UIImageView()
     fileprivate var alertView: UIView = {
@@ -164,6 +173,31 @@ open class AABlurAlertController: UIViewController {
             "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 40 : 0
         ]
 
+        if let alertViewWidth = alertViewWidth {
+            self.view.addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat: "H:[alertView(alertViewWidth)]", options: [],
+                metrics: ["alertViewWidth":alertViewWidth], views: viewsDict))
+        } else {
+            let widthConstraints = NSLayoutConstraint(item: alertView,
+                               attribute: NSLayoutAttribute.width,
+                               relatedBy: NSLayoutRelation.equal,
+                               toItem: self.view,
+                               attribute: NSLayoutAttribute.width,
+                               multiplier: 0.7, constant: 0)
+            if let maxAlertViewWidth = maxAlertViewWidth {
+                widthConstraints.priority = 999
+                self.view.addConstraint(NSLayoutConstraint(
+                    item: alertView,
+                    attribute: NSLayoutAttribute.width,
+                    relatedBy: NSLayoutRelation.lessThanOrEqual,
+                    toItem: nil,
+                    attribute: NSLayoutAttribute.width,
+                    multiplier: 1,
+                    constant: maxAlertViewWidth))
+            }
+            self.view.addConstraint(widthConstraints)
+        }
+
         let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
@@ -172,8 +206,6 @@ open class AABlurAlertController: UIViewController {
             ].forEach { self.view.addConstraint($0)}
         [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
             options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:[alertView(alertViewWidth)]",
-                                        options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertImage]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
