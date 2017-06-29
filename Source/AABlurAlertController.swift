@@ -12,6 +12,10 @@ public enum AABlurActionStyle {
     case `default`, cancel
 }
 
+public enum AABlurTopImageStyle {
+    case `default`, fullWidth
+}
+
 open class AABlurAlertAction: UIButton {
     fileprivate var handler: ((AABlurAlertAction) -> Void)? = nil
     fileprivate var style: AABlurActionStyle = AABlurActionStyle.default
@@ -59,8 +63,9 @@ open class AABlurAlertController: UIViewController {
 
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
+    open var topImageStyle: AABlurTopImageStyle = AABlurTopImageStyle.default
     open var alertViewWidth: Float?
-
+//
     /**
      Set the max alert view width
      If you don't want to have a max width set this to nil.
@@ -135,6 +140,7 @@ open class AABlurAlertController: UIViewController {
         self.backgroundImage.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.view.addSubview(backgroundImage)
         // Set up the alert view
+        self.alertView.clipsToBounds = true
         self.view.addSubview(alertView)
         // Set up alertImage
         self.alertView.addSubview(alertImage)
@@ -204,9 +210,11 @@ open class AABlurAlertController: UIViewController {
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
                             toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
             ].forEach { self.view.addConstraint($0)}
-        [NSLayoutConstraint.constraints(withVisualFormat: "V:|-margin-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+        let imageStyleMargin = self.topImageStyle == .fullWidth ? "0" : "margin"
+        [NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-\(imageStyleMargin)-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
             options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertImage]-margin-|",
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(imageStyleMargin)-[alertImage]-\(imageStyleMargin)-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),

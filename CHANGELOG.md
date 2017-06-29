@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- Top image style
+
 ## [1.1.0](https://github.com/anas10/AABlurAlertController/tree/1.1.0) (2017-01-20)
 ### Added
 - CHANGELOG
