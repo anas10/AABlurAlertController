@@ -4,6 +4,8 @@
 
 ### Added
 - Top image style
+- modern and modernCancel AABlurActionStyle
+- Added AABlurAlertStyle (modern and default)
 
 ## [1.1.0](https://github.com/anas10/AABlurAlertController/tree/1.1.0) (2017-01-20)
 ### Added

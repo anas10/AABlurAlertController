@@ -2,7 +2,9 @@
 
 Beautiful configurable Alert View with blurred background developed in Swift
 
-![Alert example](example.png)
+Example default   |  Example modern
+:-------------------------:|:-------------------------:
+![Alert default](example.png)         |  ![Alert modern](examplemodern.png)
 
 ## Requirements
 * Xcode 8 or higher

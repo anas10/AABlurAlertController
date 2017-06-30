@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     @IBAction func showAction(_ sender: Any) {
         let vc = AABlurAlertController()
 
-        vc.addAction(action: AABlurAlertAction(title: "Cancel", style: AABlurActionStyle.modernCancel) { _ in
+        vc.addAction(action: AABlurAlertAction(title: "Cancel", style: AABlurActionStyle.cancel) { _ in
             print("cancel")
         })
-        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.modern) { _ in
+        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.default) { _ in
             print("start")
             let vc2 = AABlurAlertController()
             vc2.alertTitle.text = "view2"
@@ -47,5 +47,29 @@ class ViewController: UIViewController {
         vc.alertSubtitle.text = "Are you sure you would like to start the job?\nThis action cannot be undone."
         self.present(vc, animated: true, completion: nil)
     }
-    
+
+    @IBAction func showActionModern(_ sender: Any) {
+        let vc = AABlurAlertController()
+
+        vc.addAction(action: AABlurAlertAction(title: "Cancel", style: AABlurActionStyle.modernCancel) { _ in
+            print("cancel")
+        })
+        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.modern) { _ in
+            print("start")
+            let vc2 = AABlurAlertController()
+            vc2.alertTitle.text = "view2"
+            self.present(vc2, animated: true, completion: nil)
+        })
+
+        vc.alertStyle = AABlurAlertStyle.modern
+        vc.topImageStyle = AABlurTopImageStyle.fullWidth
+        vc.blurEffectStyle = .light
+        vc.alertImage.image = UIImage(named: "truckmodal")
+        vc.imageHeight = 110
+        vc.alertImage.contentMode = .scaleAspectFill
+        vc.alertImage.layer.masksToBounds = true
+        vc.alertTitle.text = "Start a Job ?"
+        vc.alertSubtitle.text = "Are you sure you would like to start the job?\nThis action cannot be undone."
+        self.present(vc, animated: true, completion: nil)
+    }
 }

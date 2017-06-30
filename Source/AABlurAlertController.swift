@@ -97,7 +97,6 @@ open class AABlurAlertController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-        view.layer.cornerRadius = 5
         return view
     }()
     open var alertImage : UIImageView = {
@@ -157,8 +156,9 @@ open class AABlurAlertController: UIViewController {
         self.alertView.clipsToBounds = true
         switch self.alertStyle {
         case .modern:
-            break
+            self.alertView.layer.cornerRadius = 13
         default:
+            self.alertView.layer.cornerRadius = 5
             self.alertView.layer.shadowColor = UIColor.black.cgColor
             self.alertView.layer.shadowOffset = CGSize(width: 0, height: 15)
             self.alertView.layer.shadowRadius = 12
