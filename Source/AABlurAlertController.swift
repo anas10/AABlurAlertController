@@ -9,11 +9,15 @@
 import UIKit
 
 public enum AABlurActionStyle {
-    case `default`, cancel
+    case `default`, cancel, modern, modernCancel
 }
 
 public enum AABlurTopImageStyle {
     case `default`, fullWidth
+}
+
+public enum AABlurAlertStyle {
+    case `default`, modern
 }
 
 open class AABlurAlertAction: UIButton {
@@ -35,17 +39,30 @@ open class AABlurAlertAction: UIButton {
             self.setTitleColor(UIColor(red:0.47, green:0.50, blue:0.55, alpha:1.00), for: UIControlState.normal)
             self.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.00)
             self.layer.borderColor = UIColor(red:0.74, green:0.77, blue:0.79, alpha:1.00).cgColor
+            self.layer.borderWidth = 1
+            self.layer.cornerRadius = 5
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
+            self.layer.shadowRadius = 4
+            self.layer.shadowOpacity = 0.1
+        case .modernCancel:
+            self.setTitleColor(UIColor(red:0.47, green:0.50, blue:0.56, alpha:1.00), for: UIControlState.normal)
+            self.backgroundColor = UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.00)
+            self.layer.cornerRadius = 5
+        case .modern:
+            self.setTitleColor(UIColor.white, for: UIControlState.normal)
+            self.backgroundColor = UIColor(red:0.28, green:0.56, blue:0.90, alpha:1.00)
+            self.layer.cornerRadius = 5
         default:
             self.setTitleColor(UIColor.white, for: UIControlState.normal)
             self.backgroundColor = UIColor(red:0.31, green:0.57, blue:0.87, alpha:1.00)
             self.layer.borderColor = UIColor(red:0.17, green:0.38, blue:0.64, alpha:1.00).cgColor
+            self.layer.borderWidth = 1
+            self.layer.cornerRadius = 5
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
+            self.layer.shadowRadius = 4
+            self.layer.shadowOpacity = 0.1
         }
         self.setTitleColor(self.titleColor(for: UIControlState.normal)?.withAlphaComponent(0.5), for: UIControlState.highlighted)
-        self.layer.borderWidth = 1
-        self.layer.cornerRadius = 5
-        self.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.layer.shadowRadius = 4
-        self.layer.shadowOpacity = 0.1
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -61,6 +78,7 @@ open class AABlurAlertAction: UIButton {
 
 open class AABlurAlertController: UIViewController {
 
+    open var alertStyle: AABlurAlertStyle = AABlurAlertStyle.default
     open var blurEffectStyle: UIBlurEffectStyle = .light
     open var imageHeight: Float = 175
     open var topImageStyle: AABlurTopImageStyle = AABlurTopImageStyle.default
@@ -80,10 +98,6 @@ open class AABlurAlertController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         view.layer.cornerRadius = 5
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 15)
-        view.layer.shadowRadius = 12
-        view.layer.shadowOpacity = 0.22
         return view
     }()
     open var alertImage : UIImageView = {
@@ -141,6 +155,15 @@ open class AABlurAlertController: UIViewController {
         self.view.addSubview(backgroundImage)
         // Set up the alert view
         self.alertView.clipsToBounds = true
+        switch self.alertStyle {
+        case .modern:
+            break
+        default:
+            self.alertView.layer.shadowColor = UIColor.black.cgColor
+            self.alertView.layer.shadowOffset = CGSize(width: 0, height: 15)
+            self.alertView.layer.shadowRadius = 12
+            self.alertView.layer.shadowOpacity = 0.22
+        }
         self.view.addSubview(alertView)
         // Set up alertImage
         self.alertView.addSubview(alertImage)

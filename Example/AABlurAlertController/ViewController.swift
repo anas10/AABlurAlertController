@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     @IBAction func showAction(_ sender: Any) {
         let vc = AABlurAlertController()
 
-        vc.addAction(action: AABlurAlertAction(title: "Cancel", style: AABlurActionStyle.cancel) { _ in
+        vc.addAction(action: AABlurAlertAction(title: "Cancel", style: AABlurActionStyle.modernCancel) { _ in
             print("cancel")
         })
-        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.default) { _ in
+        vc.addAction(action: AABlurAlertAction(title: "Start", style: AABlurActionStyle.modern) { _ in
             print("start")
             let vc2 = AABlurAlertController()
             vc2.alertTitle.text = "view2"
