@@ -92,6 +92,10 @@ open class AABlurAlertController: UIViewController {
      */
     open var maxAlertViewWidth: CGFloat? = 450
 
+    private var spacing: Int = 16
+    private var titleSubtitleSpacing: Int = 16
+    private var bottomSpacing: Int = 32
+
     fileprivate var backgroundImage : UIImageView = UIImageView()
     fileprivate var alertView: UIView = {
         let view = UIView()
@@ -157,6 +161,8 @@ open class AABlurAlertController: UIViewController {
         switch self.alertStyle {
         case .modern:
             self.alertView.layer.cornerRadius = 13
+            self.titleSubtitleSpacing = 32
+            self.bottomSpacing = 24
         default:
             self.alertView.layer.cornerRadius = 5
             self.alertView.layer.shadowColor = UIColor.black.cgColor
@@ -192,14 +198,15 @@ open class AABlurAlertController: UIViewController {
             "alertSubtitle": alertSubtitle,
             "buttonsStackView": buttonsStackView
         ]
-        let spacing = 16
         let viewMetrics: [String: Any] = [
             "margin": spacing * 2,
             "spacing": spacing,
+            "titleSubtitleSpacing": titleSubtitleSpacing,
+            "bottomSpacing": bottomSpacing,
             "alertViewWidth": 450,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
             "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 40 : 0
+            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 44 : 0
         ]
 
         if let alertViewWidth = alertViewWidth {
@@ -227,7 +234,7 @@ open class AABlurAlertController: UIViewController {
             self.view.addConstraint(widthConstraints)
         }
 
-        let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "spacing-[alertSubtitle]-" : ""
+        let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "titleSubtitleSpacing-[alertSubtitle]-" : ""
         [NSLayoutConstraint(item: alertView, attribute: .centerX, relatedBy: .equal,
                             toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
          NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal,
@@ -235,7 +242,7 @@ open class AABlurAlertController: UIViewController {
             ].forEach { self.view.addConstraint($0)}
         let imageStyleMargin = self.topImageStyle == .fullWidth ? "0" : "margin"
         [NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-\(imageStyleMargin)-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-margin-|",
+            withVisualFormat: "V:|-\(imageStyleMargin)-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-bottomSpacing-|",
             options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(imageStyleMargin)-[alertImage]-\(imageStyleMargin)-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
