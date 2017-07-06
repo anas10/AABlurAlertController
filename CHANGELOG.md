@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.2.1](https://github.com/anas10/AABlurAlertController/tree/1.2.1) (2017-07-06)
+### Changed
+- Updated modern design
+
 ## [1.2.0](https://github.com/anas10/AABlurAlertController/tree/1.2.0) (2017-06-30)
 ### Added
 - Top image style
