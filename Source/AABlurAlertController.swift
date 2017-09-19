@@ -92,12 +92,15 @@ open class AABlurAlertController: UIViewController {
      */
     open var maxAlertViewWidth: CGFloat? = 450
 
-    private var spacing: Int = 16
+    public var spacing: Int = 16
+    public var margin: Int = 32
     private var titleSubtitleSpacing: Int = 16
-    private var bottomSpacing: Int = 32
+    public var bottomSpacing: Int = 32
+    public var buttonWidth: CGFloat = 250
+    public var buttonHeight: CGFloat = 52
 
     fileprivate var backgroundImage : UIImageView = UIImageView()
-    fileprivate var alertView: UIView = {
+    fileprivate(set) public var alertView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
@@ -127,7 +130,7 @@ open class AABlurAlertController: UIViewController {
         return lbl
     }()
 
-    fileprivate let buttonsStackView : UIStackView = {
+    fileprivate(set) public var buttonsStackView : UIStackView = {
         let sv = UIStackView()
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
@@ -199,14 +202,14 @@ open class AABlurAlertController: UIViewController {
             "buttonsStackView": buttonsStackView
         ]
         let viewMetrics: [String: Any] = [
-            "margin": spacing * 2,
+            "margin": margin,
             "spacing": spacing,
             "titleSubtitleSpacing": titleSubtitleSpacing,
             "bottomSpacing": bottomSpacing,
             "alertViewWidth": 450,
             "alertImageHeight": (alertImage.image != nil) ? imageHeight : 0,
             "alertTitleHeight": 22,
-            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? 44 : 0
+            "buttonsStackViewHeight": (buttonsStackView.arrangedSubviews.count > 0) ? buttonHeight : 0
         ]
 
         if let alertViewWidth = alertViewWidth {
@@ -249,10 +252,9 @@ open class AABlurAlertController: UIViewController {
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertSubtitle]-margin-|",
-                                        options: [], metrics: viewMetrics, views: viewsDict),
-         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
             ].forEach { NSLayoutConstraint.activate($0) }
+        NSLayoutConstraint.activate([buttonsStackView.centerXAnchor.constraint(equalTo: alertView.centerXAnchor)])
     }
 
     open override func viewWillAppear(_ animated: Bool) {
@@ -278,7 +280,9 @@ open class AABlurAlertController: UIViewController {
 
     open func addAction(action: AABlurAlertAction) {
         action.parent = self
+        action.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.addArrangedSubview(action)
+        NSLayoutConstraint.activate([action.widthAnchor.constraint(equalToConstant: buttonWidth)])
     }
 
     fileprivate func snapshot() -> UIImage? {
