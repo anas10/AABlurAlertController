@@ -226,7 +226,7 @@ open class AABlurAlertController: UIViewController {
                                attribute: NSLayoutAttribute.width,
                                multiplier: 0.7, constant: 0)
             if let maxAlertViewWidth = maxAlertViewWidth {
-                widthConstraints.priority = 999
+                widthConstraints.priority = UILayoutPriority(rawValue: 999)
                 self.view.addConstraint(NSLayoutConstraint(
                     item: alertView,
                     attribute: NSLayoutAttribute.width,
@@ -296,7 +296,7 @@ open class AABlurAlertController: UIViewController {
         return snapshotImage
     }
 
-    func tapOnBackground(sender: UITapGestureRecognizer) {
+    @objc func tapOnBackground(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             self.dismiss(animated: true, completion: nil)
         }
