@@ -94,7 +94,7 @@ open class AABlurAlertController: UIViewController {
 
     public var spacing: Int = 16
     public var margin: Int = 32
-    private var titleSubtitleSpacing: Int = 16
+    public var titleSubtitleSpacing: Int = 16
     public var bottomSpacing: Int = 32
     public var buttonWidth: CGFloat = 250
     public var buttonHeight: CGFloat = 52
@@ -219,14 +219,7 @@ open class AABlurAlertController: UIViewController {
                 withVisualFormat: "H:[alertView(alertViewWidth)]", options: [],
                 metrics: ["alertViewWidth":alertViewWidth], views: viewsDict))
         } else {
-            let widthConstraints = NSLayoutConstraint(item: alertView,
-                               attribute: NSLayoutAttribute.width,
-                               relatedBy: NSLayoutRelation.equal,
-                               toItem: self.view,
-                               attribute: NSLayoutAttribute.width,
-                               multiplier: 0.7, constant: 0)
-            if let maxAlertViewWidth = maxAlertViewWidth {
-                widthConstraints.priority = UILayoutPriority(rawValue: 999)
+            if let maxAlertViewWidth = maxAlertViewWidth, view.bounds.width * 0.7 >= maxAlertViewWidth {
                 self.view.addConstraint(NSLayoutConstraint(
                     item: alertView,
                     attribute: NSLayoutAttribute.width,
@@ -235,8 +228,14 @@ open class AABlurAlertController: UIViewController {
                     attribute: NSLayoutAttribute.width,
                     multiplier: 1,
                     constant: maxAlertViewWidth))
+            } else {
+                self.view.addConstraint(NSLayoutConstraint(item: alertView,
+                                                           attribute: NSLayoutAttribute.width,
+                                                           relatedBy: NSLayoutRelation.equal,
+                                                           toItem: self.view,
+                                                           attribute: NSLayoutAttribute.width,
+                                                           multiplier: 0.7, constant: 0))
             }
-            self.view.addConstraint(widthConstraints)
         }
 
         let alertSubtitleVconstraint = (alertSubtitle.text != nil) ? "titleSubtitleSpacing-[alertSubtitle]-" : ""
@@ -250,13 +249,14 @@ open class AABlurAlertController: UIViewController {
             withVisualFormat: "V:|-\(imageStyleMargin)-[alertImage(alertImageHeight)]-spacing-[alertTitle(alertTitleHeight)]-\(alertSubtitleVconstraint)margin-[buttonsStackView(buttonsStackViewHeight)]-bottomSpacing-|",
             options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-\(imageStyleMargin)-[alertImage]-\(imageStyleMargin)-|",
-                                        options: [], metrics: viewMetrics, views: viewsDict),
+            options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertTitle]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict),
          NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[alertSubtitle]-margin-|",
+                                        options: [], metrics: viewMetrics, views: viewsDict),
+         NSLayoutConstraint.constraints(withVisualFormat: "H:|-margin-[buttonsStackView]-margin-|",
                                         options: [], metrics: viewMetrics, views: viewsDict)
             ].forEach { NSLayoutConstraint.activate($0) }
-        NSLayoutConstraint.activate([buttonsStackView.centerXAnchor.constraint(equalTo: alertView.centerXAnchor)])
     }
 
     open override func viewWillAppear(_ animated: Bool) {
