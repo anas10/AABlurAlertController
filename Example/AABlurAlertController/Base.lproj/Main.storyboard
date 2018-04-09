@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_7342" translatesAutoresizingMaskIntoConstraints="NO" id="egJ-Uc-Bkh">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XVm-bt-322">
-                                <rect key="frame" x="258" y="487.5" width="251" height="48"/>
+                                <rect key="frame" x="66" y="309" width="242" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Show modern alert">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,9 +35,8 @@
                                     <action selector="showActionModern:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2K-UF-3c5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKc-Sx-qwX">
-                                <rect key="frame" x="264" y="413" width="240" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKc-Sx-qwX">
+                                <rect key="frame" x="71" y="399" width="232" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Show default alert">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,11 +50,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="egJ-Uc-Bkh" firstAttribute="centerX" secondItem="XVm-bt-322" secondAttribute="centerX" id="BB1-Ye-w0M"/>
+                            <constraint firstItem="hKc-Sx-qwX" firstAttribute="centerX" secondItem="XVm-bt-322" secondAttribute="centerX" id="IJG-JF-QYY"/>
                             <constraint firstItem="egJ-Uc-Bkh" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="SNt-2z-I4y"/>
                             <constraint firstAttribute="trailing" secondItem="egJ-Uc-Bkh" secondAttribute="trailing" id="XX7-nS-6pi"/>
                             <constraint firstItem="egJ-Uc-Bkh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lhd-QY-7z9"/>
                             <constraint firstItem="egJ-Uc-Bkh" firstAttribute="centerY" secondItem="XVm-bt-322" secondAttribute="centerY" id="rh7-MJ-Ezs"/>
                             <constraint firstItem="egJ-Uc-Bkh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tCU-ks-WHH"/>
+                            <constraint firstItem="hKc-Sx-qwX" firstAttribute="top" secondItem="XVm-bt-322" secondAttribute="bottom" constant="42" id="tvS-TF-kC5"/>
                         </constraints>
                     </view>
                 </viewController>
